@@ -9,4 +9,3 @@ app.use(express.json());
 const port = 8080;
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
-// Fo9Lr7Vp8So0Si2
