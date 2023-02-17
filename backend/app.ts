@@ -10,5 +10,10 @@ app.use(express.json());
 const connection = require('./db/connect');
 connection();
 
+// ROTAS
+const routes = require('./routes/router');
+
+app.use('/api', routes);
+
 const port = 8080;
-app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
+app.listen(port, () => console.log(`❧ Servidor rodando na porta ${port} ☙`));
