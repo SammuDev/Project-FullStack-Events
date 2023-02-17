@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+const mongooseCnt = require('mongoose');
 
 require('dotenv').config();
 
 const main = async () => {
   try {
-    mongoose.set('strictQuery', true);
-    await mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.me0xegf.mongodb.net/?retryWrites=true&w=majority`);
+    mongooseCnt.set('strictQuery', true);
+    await mongooseCnt.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.me0xegf.mongodb.net/?retryWrites=true&w=majority`);
     console.log('CONNECT: Conexão ao banco de dados bem sucedida!');
   } catch (error) {
     console.log(`ERRO: ${error}`);

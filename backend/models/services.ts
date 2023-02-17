@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongooseSvc = require('mongoose');
 
-const { Schema } = mongoose;
+const { Schema } = mongooseSvc;
 
 const serviceSchema = new Schema({
   name: {
