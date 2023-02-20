@@ -1,8 +1,10 @@
 const routerServices = require('express').Router();
 
-const serviceControllers = require('../controllers/serviceController');
+const ofServiceController = require('../controllers/serviceController');
 
 // FUNCTIONS
-routerServices.router('/services').post((req, res) => serviceControllers.create(req, res));
+
+routerServices.route('/services').post((req, res) => ofServiceController.create(req, res));
+// routerServices.post('/services', (req, res) => ofServiceController.create(req, res));
 
 module.exports = routerServices;
