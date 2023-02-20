@@ -28,6 +28,18 @@ const serviceController = {
       console.log(`ERROR: ${error.message}`);
       return res.status(500).send(error.message);
     }
+  },
+
+  getId: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const services = await ServiceModel.findById(id);
+      return res.status(200).json(services);
+    }
+    catch (error) {
+      console.log(`ERROR: ${error.message}`);
+      return res.status(500).send(error.message);
+    }
   }
 };
 
