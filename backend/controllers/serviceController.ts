@@ -9,7 +9,8 @@ const serviceController = {
         price: req.body.price,
         image: req.body.image,
       }
-      return await res.status(200).send('TEXTO');
+      const response = await serviceModel(service);
+      res.status(201).json({response, msg: 'Serviço criado com sucesso!'});
     } catch (error) {
       console.log(`ERROR: ${error}`);
     }
