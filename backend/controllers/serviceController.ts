@@ -9,7 +9,7 @@ const serviceController = {
         description: req.body.description,
         price: req.body.price,
         image: req.body.image,
-      }
+      };
       const response = await ServiceModel.create(theSchema);
       return res.status(201).json({response, msg: 'Serviço criado com sucesso!'});
     }
@@ -50,7 +50,7 @@ const serviceController = {
         description: req.body.description,
         price: req.body.price,
         image: req.body.image,
-      }
+      };
       const id = req.params.id;
       const services = await ServiceModel.findByIdAndUpdate(id, theSchema, { new: true });
       if (!services) return res.status(404).json({msg: 'ERRO: Serviço solicitado não encontrado!'});
