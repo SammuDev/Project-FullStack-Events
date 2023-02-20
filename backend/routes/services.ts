@@ -8,6 +8,8 @@ routerServices.route('/services').get((req, res) => ofServiceController.getAll(r
 
 routerServices.route('/services/:id').get((req, res) => ofServiceController.getId(req, res));
 
+routerServices.route('/services/:id').get((req, res) => ofServiceController.update(req, res));
+
 routerServices.route('/services/:id').get((req, res) => ofServiceController.delete(req, res));
 // ================
 

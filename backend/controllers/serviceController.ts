@@ -43,10 +43,29 @@ const serviceController = {
     }
   },
 
+  update: async (req, res) => {
+    try {
+      const theSchema = {
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        image: req.body.image,
+      }
+      const id = req.params.id;
+      const services = await ServiceModel.findByIdAndDelete(id, theSchema, { new: true });
+      if (!services) return res.status(404).json({msg: 'ERRO: Serviço solicitado não encontrado!'});
+      return res.status(200).json(services);
+    }
+    catch (error) {
+      console.log(`ERROR: ${error.message}`);
+      return res.status(500).send(error.message);
+    }
+  },
+
   delete: async (req, res) => {
     try {
       const id = req.params.id;
-      const services = await ServiceModel.findByIdAndDelete;
+      const services = await ServiceModel.findByIdAndDelete(id);
       if (!services) return res.status(404).json({msg: 'ERRO: Serviço solicitado não encontrado!'});
       return res.status(200).json(services);
     }
