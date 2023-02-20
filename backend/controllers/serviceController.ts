@@ -10,9 +10,10 @@ const serviceController = {
         image: req.body.image,
       }
       const response = await serviceModel(service);
-      res.status(201).json({response, msg: 'Serviço criado com sucesso!'});
+      return res.status(201).json({response, msg: 'Serviço criado com sucesso!'});
     } catch (error) {
-      console.log(`ERROR: ${error}`);
+      console.log(`ERROR: ${error.message}`);
+      return res.status(500).send(error.message);
     }
   }
 };
