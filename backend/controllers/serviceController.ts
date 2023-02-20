@@ -54,7 +54,7 @@ const serviceController = {
       const id = req.params.id;
       const services = await ServiceModel.findByIdAndUpdate(id, theSchema, { new: true });
       if (!services) return res.status(404).json({msg: 'ERRO: Serviço solicitado não encontrado!'});
-      return res.status(200).json(services);
+      return res.status(200).json(services, { msg: 'Serviço atualizado com sucesso!' });
     }
     catch (error) {
       console.log(`ERROR: ${error.message}`);
@@ -67,7 +67,7 @@ const serviceController = {
       const id = req.params.id;
       const services = await ServiceModel.findByIdAndDelete(id);
       if (!services) return res.status(404).json({msg: 'ERRO: Serviço solicitado não encontrado!'});
-      return res.status(200).json(services);
+      return res.status(200).json(services, { msg: 'Serviço excluído com sucesso!' });
     }
     catch (error) {
       console.log(`ERROR: ${error.message}`);
