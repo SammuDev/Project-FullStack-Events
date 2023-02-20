@@ -1,8 +1,0 @@
-POST http://localhost:8080/api/services
-constent-Content-Type: application/json
-{
-  "name": "Um nome",
-  "description": "Uma descrição",
-  "price": 1400,
-  "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbr.ign.com%2Frick-morty&psig=AOvVaw0JLXA31Wp3dNlCu-o6VhB4&ust=1676939179465000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOC3z7Lrov0CFQAAAAAdAAAAABAE"
-}
