@@ -11,6 +11,8 @@ const partyController = {
         image: req.body.image,
         services: req.body.services
       };
+      const response = await PartyModel.create(partySchema);
+      return res.status(201).json({response});
     }
     catch (error) {
       return console.log(`ERRO: `, error);
