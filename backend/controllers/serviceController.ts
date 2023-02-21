@@ -1,5 +1,4 @@
-// const { ServiceModel: serviceModel } = require('../models/Services.model');
-const ServiceModel = require('../models/Services.model');
+import ServiceModel from '../models/Services.model';
 
 const serviceController = {
   create: async (req, res) => {

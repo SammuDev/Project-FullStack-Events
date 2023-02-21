@@ -1,8 +1,13 @@
-const mongooseService = require('mongoose');
+import { Schema, Document, model } from 'mongoose';
 
-const SchemaService = mongooseService.Schema;
+type TypeSchemaServices = Document & {
+  name: string,
+  description: string,
+  price: number,
+  image: string
+};
 
-const serviceSchema = new SchemaService({
+const serviceSchema = new Schema<TypeSchemaServices>({
   name: {
     type: String,
     required: true
@@ -21,6 +26,6 @@ const serviceSchema = new SchemaService({
   }
 });
 
-const Service = mongooseService.model('Service', serviceSchema);
+const Service = model('Service', serviceSchema);
 
-module.exports = Service;
+export default Service;

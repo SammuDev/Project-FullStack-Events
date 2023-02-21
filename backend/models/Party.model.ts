@@ -1,10 +1,17 @@
-const mongooseParty = require('mongoose');
+import { Schema, Document, model } from 'mongoose';
 
-const SchemaParty = mongooseParty.Schema;
+import toServiceSchema from './Services.model';
 
-const { toServiceSchema } = require('./Services.model');
+interface TypeSchemaParty extends Document {
+  title: string,
+  author: string,
+  description: string,
+  budget: number,
+  image: string,
+  // services?: Array<string> | typeof toServiceSchema;
+};
 
-const partySchema = new SchemaParty({
+const partySchema = new Schema<TypeSchemaParty>({
   title: {
     type: String,
     required: true
@@ -25,11 +32,13 @@ const partySchema = new SchemaParty({
     type: String,
     required: true
   },
-  services: {
-    type: [ toServiceSchema ]
-  }
+  // services: {
+  //   // type: Schema.Types.Mixed,
+  //   type: toServiceSchema,
+  //   ref: 'Services'
+  // }
 }, {timestamps: true});
 
-const Party = mongooseParty.model('Party', partySchema);
+const Party = model<TypeSchemaParty>('Party', partySchema);
 
-module.exports = Party;
+export default Party;

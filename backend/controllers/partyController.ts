@@ -1,4 +1,4 @@
-const PartyModel = require('../models/Party.model');
+import PartyModel from '../models/Party.model';
 
 const checkPartyBudget = (budget, services): boolean => {
   const priceSum = services.reduce((sum, service) => sum + service, 0);
@@ -16,11 +16,11 @@ const partyController = {
         description: req.body.description,
         budget: req.body.budget,
         image: req.body.image,
-        services: req.body.services
+        // services: req.body.services
       };
-      if (partySchema.services && checkPartyBudget(partySchema.budget, partySchema.services)) {
-        return res.status(406).json({msg: 'Seu orçamento é insufuciente!'});
-      };
+      // if (partySchema.services && checkPartyBudget(partySchema.budget, partySchema.services)) {
+      //   return res.status(406).json({msg: 'Seu orçamento é insufuciente!'});
+      // };
       const response = await PartyModel.create(partySchema);
       return res.status(201).json({response, msg: 'Evento festivo gerado!'});
     }
