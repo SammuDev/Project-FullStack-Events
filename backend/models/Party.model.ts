@@ -7,8 +7,7 @@ interface TypeSchemaParty extends Document {
   author: string,
   description: string,
   budget: number,
-  image: string,
-  // services: Array<string>;
+  image: string
 };
 
 const partySchema = new Schema<TypeSchemaParty>({
