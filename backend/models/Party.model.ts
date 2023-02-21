@@ -4,14 +4,6 @@ const SchemaParty = mongooseParty.Schema;
 
 const { toServiceSchema } = require('./Services.model');
 
-// type TypeSchemaParty = {
-//   name: string,
-//   author: string,
-//   description: string,
-//   budget: number,
-//   image: string
-// };
-
 const partySchema = new SchemaParty({
   title: {
     type: String,
