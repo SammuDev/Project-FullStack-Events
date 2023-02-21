@@ -13,7 +13,7 @@ const { toServiceSchema } = require('./Services.model');
 // };
 
 const partySchema = new SchemaParty({
-  name: {
+  title: {
     type: String,
     required: true
   },
