@@ -8,7 +8,7 @@ interface TypeSchemaParty extends Document {
   description: string,
   budget: number,
   image: string,
-  // services?: Array<string> | typeof toServiceSchema;
+  services: Array<string>;
 };
 
 const partySchema = new Schema<TypeSchemaParty>({
@@ -32,11 +32,10 @@ const partySchema = new Schema<TypeSchemaParty>({
     type: String,
     required: true
   },
-  // services: {
-  //   // type: Schema.Types.Mixed,
-  //   type: toServiceSchema,
-  //   ref: 'Services'
-  // }
+  services: {
+    type: Schema.Types.ObjectId,
+    ref: 'Services'
+  }
 }, {timestamps: true});
 
 const Party = model<TypeSchemaParty>('Party', partySchema);

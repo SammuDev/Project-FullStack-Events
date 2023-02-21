@@ -26,6 +26,6 @@ const serviceSchema = new Schema<TypeSchemaServices>({
   }
 });
 
-const Service = model('Service', serviceSchema);
+const Service = model<TypeSchemaServices>('Service', serviceSchema);
 
 export default Service;
