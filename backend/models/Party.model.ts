@@ -1,7 +1,5 @@
 import { Schema, Document, model } from 'mongoose';
 
-import toServiceSchema from './Services.model';
-
 interface TypeSchemaParty extends Document {
   title: string,
   author: string,
@@ -30,12 +28,7 @@ const partySchema = new Schema<TypeSchemaParty>({
   image: {
     type: String,
     required: true
-  },
-  // services: {
-  //   type: Schema.Types.ObjectId,
-  //   // type: Array<Object>,
-  //   ref: 'Services'
-  // }
+  }
 }, {timestamps: true});
 
 const Party = model<TypeSchemaParty>('Party', partySchema);
